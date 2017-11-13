@@ -48,6 +48,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Ejercicio = new Intent(MainActivity.this, ConexionHTTP.class);
                 startActivity(Ejercicio);
                 break;
+            case R.id.Eje2:
+                Ejercicio = new Intent(MainActivity.this, ConexionAsincrona.class);
+                startActivity(Ejercicio);
+                break;
+            case R.id.Eje3:
+                Ejercicio = new Intent(MainActivity.this, AAHCActivity.class);
+                startActivity(Ejercicio);
+                break;
         }
     }
 
