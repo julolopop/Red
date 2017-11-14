@@ -27,7 +27,7 @@ public class AAHCActivity extends AppCompatActivity implements View.OnClickListe
     Button conectar;
     WebView web;
     TextView tiempo;
-
+    long inicio,fin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,27 +54,26 @@ public class AAHCActivity extends AppCompatActivity implements View.OnClickListe
 
     private void AAHC() {
         final String texto = direccion.getText().toString();
-        final long inicio;
-        final long[] fin = new long[1];
+
         final ProgressDialog progreso = new ProgressDialog(AAHCActivity.this);
         inicio = System.currentTimeMillis();
         RestClient.get(texto, new TextHttpResponseHandler() {
             @Override
             public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, String responseString, Throwable throwable) {
                 // called when response HTTP status is "4XX" (eg. 401, 403, 404)
-                fin[0] = System.currentTimeMillis();
+                fin = System.currentTimeMillis();
                 progreso.dismiss();
                 web.loadDataWithBaseURL(null, responseString, "text/html", "UTF-8", null);
-                tiempo.setText("Completado");
+                tiempo.setText("Completado"+(inicio-fin));
             }
 
             @Override
             public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, String responseString) {
                 // called when response HTTP status is "200 OK"
-                fin[0] = System.currentTimeMillis();
+                fin = System.currentTimeMillis();
                 progreso.dismiss();
                 web.loadDataWithBaseURL(null, responseString, "text/html", "UTF-8", null);
-                tiempo.setText("Completado");
+                tiempo.setText("Completado"+(inicio-fin));
             }
 
             @Override

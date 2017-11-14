@@ -56,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Ejercicio = new Intent(MainActivity.this, AAHCActivity.class);
                 startActivity(Ejercicio);
                 break;
+            case R.id.Eje4:
+                Ejercicio = new Intent(MainActivity.this, ConexionVollyActivity.class);
+                startActivity(Ejercicio);
+                break;
         }
     }
 
