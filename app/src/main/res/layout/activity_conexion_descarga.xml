@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.usuario.red.ConexionDescarga"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/txv_Intro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/introduce_una_url" />
+
+    <EditText
+        android:id="@+id/edt_URL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="http://192.168.3.57/acceso/prueba.txt" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_conectar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Conectar" />
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/web"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_weight="0.84" />
+
+    <TextView
+        android:id="@+id/txv_Resultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+</LinearLayout>

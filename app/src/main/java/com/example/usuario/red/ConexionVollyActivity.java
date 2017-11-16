@@ -1,6 +1,7 @@
 package com.example.usuario.red;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
@@ -23,8 +24,11 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.usuario.red.pojo.OkHttp3Stack;
 
 import java.io.UnsupportedEncodingException;
+
+import okhttp3.OkHttpClient;
 
 public class ConexionVollyActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = "MyTag";
@@ -49,6 +53,7 @@ public class ConexionVollyActivity extends AppCompatActivity implements View.OnC
         web = (WebView) findViewById(R.id.web);
         tiempo = (TextView) findViewById(R.id.txv_Resultado);
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
+
     }
     @Override
     public void onClick(View view) {
@@ -62,7 +67,8 @@ public class ConexionVollyActivity extends AppCompatActivity implements View.OnC
     public void makeRequest(String url) {
         final String enlace = url;
         // Instantiate the RequestQueue.
-        mRequestQueue = Volley.newRequestQueue(this);
+        //mRequestQueue = Volley.newRequestQueue(this);
+        mRequestQueue = MySingleton.getInstance(this.getApplicationContext()).getRequestQueue();
         final ProgressDialog progreso = new ProgressDialog(ConexionVollyActivity.this);
         progreso.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progreso.setMessage("Conectando...");
@@ -123,6 +129,31 @@ public class ConexionVollyActivity extends AppCompatActivity implements View.OnC
         }
     }
 
+    public static class MySingleton {
+        private static MySingleton mInstance;
+        private RequestQueue mRequestQueue;
+        private static Context mCtx;
+        private MySingleton(Context context) {
+            mCtx = context;
+            mRequestQueue = getRequestQueue();
+        }
+        public static synchronized MySingleton getInstance(Context context) {
+            if (mInstance == null) {
+                mInstance = new MySingleton(context);
+            }
+            return mInstance;
+        }
+        public RequestQueue getRequestQueue() {
+            if (mRequestQueue == null) {
+                // getApplicationContext() is key, it keeps you from leaking the
+                // Activity or BroadcastReceiver if someone passes one in.
+                //mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
+                mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext(), new
+                        OkHttp3Stack(new OkHttpClient()));
+            }
+            return mRequestQueue;
+        }
+    }
 
 
 
