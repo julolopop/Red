@@ -57,11 +57,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(Ejercicio);
                 break;
             case R.id.Eje4:
-                Ejercicio = new Intent(MainActivity.this, ConexionVollyActivity.class);
+                //Ejercicio = new Intent(MainActivity.this, ConexionVollyActivity.class);
+                Ejercicio = new Intent(MainActivity.this, ConexionDescarga.class);
                 startActivity(Ejercicio);
                 break;
             case R.id.Eje5:
-                Ejercicio = new Intent(MainActivity.this, ConexionDescarga.class);
+                Ejercicio = new Intent(MainActivity.this, DescargaActivity.class);
+                startActivity(Ejercicio);
+                break;
+            case R.id.Eje6:
+                Ejercicio = new Intent(MainActivity.this, DescargaActivity.class);
                 startActivity(Ejercicio);
                 break;
         }

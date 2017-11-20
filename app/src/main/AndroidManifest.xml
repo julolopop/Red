@@ -22,7 +22,8 @@
         <activity android:name=".ConexionDescarga" />
         <activity android:name=".ConexionAsincrona" />
         <activity android:name=".AAHCActivity" />
-        <activity android:name=".ConexionVollyActivity"></activity>
+        <activity android:name=".ConexionVollyActivity" />
+        <activity android:name=".DescargaActivity"></activity>
     </application>
 
 </manifest>
