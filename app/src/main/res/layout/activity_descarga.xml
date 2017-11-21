@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="http://192.168.3.57/acceso/android.jpg" />
+        android:text="http://alumno.mobi/~alumno/superior/aranda/icon.png" />
 
     <LinearLayout
             android:layout_width="match_parent"
