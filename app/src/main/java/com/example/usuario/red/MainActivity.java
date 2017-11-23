@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(Ejercicio);
                 break;
             case R.id.Eje6:
-                Ejercicio = new Intent(MainActivity.this, DescargaActivity.class);
+                Ejercicio = new Intent(MainActivity.this, SubidaFicheroActivity.class);
                 startActivity(Ejercicio);
                 break;
         }

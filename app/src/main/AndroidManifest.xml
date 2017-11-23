@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,7 +24,8 @@
         <activity android:name=".ConexionAsincrona" />
         <activity android:name=".AAHCActivity" />
         <activity android:name=".ConexionVollyActivity" />
-        <activity android:name=".DescargaActivity"></activity>
+        <activity android:name=".DescargaActivity" />
+        <activity android:name=".SubidaFicheroActivity"></activity>
     </application>
 
 </manifest>
