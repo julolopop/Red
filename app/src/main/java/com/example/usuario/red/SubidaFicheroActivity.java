@@ -54,7 +54,7 @@ public class SubidaFicheroActivity extends AppCompatActivity implements View.OnC
 
     }
 
-    public final static String WEB = "http://192.168.3.57/acceso/upload.php";
+    public final static String WEB = "http://alumno.mobi/~alumno/superior/diaz/upload.php";
 
     private void subida() {
         final AsyncHttpClient RestClient = new AsyncHttpClient();
