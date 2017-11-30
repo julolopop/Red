@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.FileAsyncHttpResponseHandler;
 import com.loopj.android.http.RequestHandle;
+import com.loopj.android.http.RequestParams;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -55,6 +56,7 @@ public class DescargaActivity extends AppCompatActivity implements View.OnClickL
 
         AsyncHttpClient client = new AsyncHttpClient();
         File fichero = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
+
         client.get(url, new FileAsyncHttpResponseHandler(fichero) {
             @Override
             public void onStart() {

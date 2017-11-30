@@ -54,7 +54,7 @@ public class SubidaFicheroActivity extends AppCompatActivity implements View.OnC
 
     }
 
-    public final static String WEB = "http://alumno.mobi/~alumno/superior/diaz/upload.php";
+    public final static String WEB = "http://192.168.2.171/upload.php";
 
     private void subida() {
         final AsyncHttpClient RestClient = new AsyncHttpClient();
@@ -65,6 +65,7 @@ public class SubidaFicheroActivity extends AppCompatActivity implements View.OnC
         myFile = new File(Environment.getExternalStorageDirectory(), fichero);
         //File myFile = new File("/path/to/file.png");
         RequestParams params = new RequestParams();
+        params.add("usuario","123");
         try {
             params.put("fileToUpload", myFile);
         } catch (FileNotFoundException e) {
