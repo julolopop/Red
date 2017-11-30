@@ -97,8 +97,8 @@ public class SubidaFicheroActivity extends AppCompatActivity implements View.OnC
 
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                    progreso.setMessage("Imagen subida");
-                    resultado.setText("Imagen subida");
+
+                    resultado.setText(responseString);
                     progreso.dismiss();
                 }
             });
